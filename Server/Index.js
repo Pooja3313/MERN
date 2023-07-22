@@ -8,7 +8,7 @@ const cors = require("cors");
 
 App.use(cors(
     {
-        origin: ["https://mern-pooja.vercel.app"],
+        origin: ["https://mern-frontend-alpha.vercel.app"],
         methods:["POST", "GET"],
         credentials: true
     }

@@ -2,8 +2,17 @@ const dotenv = require('dotenv');
 // const mongoose = require('mongoose');
 const express = require('express');
 const App = express();
+const cors = require("cors");
+
 // const authRouter = require('./router/auth');
 
+App.use(cors(
+    {
+        origin: ["https://mern-pooja.vercel.app/"],
+        methods:["POST", "GET"],
+        credentials: true
+    }
+));
 
 
 dotenv.config({ path: './config.env'});

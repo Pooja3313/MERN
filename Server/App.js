@@ -8,17 +8,20 @@ const cors = require("cors");
 
 App.use(cors(
     {
-        origin: ["https://mern-pooja.vercel.app/"],
+        origin: ["https://mern-pooja.vercel.app"],
         methods:["POST", "GET"],
         credentials: true
     }
 ));
-
+App.use(express.json());
+App.get('/',(req, res) => {
+        res.send("Hello world from server App.js");
+    });
 
 dotenv.config({ path: './config.env'});
 const PORT = process.env.PORT;
 require('./db/conn');
-App.use(express.json());   //{this line use for output get data in this brackets like name:pooja etc...}
+                              //{this line use for output get data in this brackets like name:pooja etc...}
 const User = require('./model/userSchema');
 
 App.use(require('./router/auth'));

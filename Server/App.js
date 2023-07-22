@@ -13,7 +13,7 @@ App.use(cors(
         credentials: true
     }
 ));
-App.use(express.json());
+App.use(express.json()); //
 App.get('/',(req, res) => {
         res.send("Hello world from server App.js");
     });

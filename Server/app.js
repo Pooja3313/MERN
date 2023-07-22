@@ -2,18 +2,18 @@ const dotenv = require('dotenv');
 // const mongoose = require('mongoose');
 const express = require('express');
 const App = express();
-const cors = require("cors");
+// const cors = require("cors");
 
 // const authRouter = require('./router/auth');
 
-App.use(cors(
-    {
-        origin: ["https://mern-frontend-alpha.vercel.app"],
-        methods:["POST", "GET"],
-        credentials: true
-    }
-));
-App.use(express.json()); //
+// App.use(cors(
+//     {
+//         origin: ["https://mern-frontend-alpha.vercel.app"],
+//         methods:["POST", "GET"],
+//         credentials: true
+//     }
+// ));
+// App.use(express.json()); //
 App.get('/',(req, res) => {
         res.send("Hello world from server App.js");
     });
@@ -21,7 +21,7 @@ App.get('/',(req, res) => {
 dotenv.config({ path: './config.env'});
 const PORT = process.env.PORT;
 require('./db/conn');
-                              //{this line use for output get data in this brackets like name:pooja etc...}
+App.use(express.json());      //{this line use for output get data in this brackets like name:pooja etc...}
 const User = require('./model/userSchema');
 
 App.use(require('./router/auth'));

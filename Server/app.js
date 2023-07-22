@@ -2,18 +2,26 @@ const dotenv = require('dotenv');
 // const mongoose = require('mongoose');
 const express = require('express');
 const App = express();
-// const cors = require("cors");
+const cors = require("cors");
 
 // const authRouter = require('./router/auth');
 
-// App.use(cors(
-//     {
-//         origin: ["https://mern-frontend-alpha.vercel.app"],
-//         methods:["POST", "GET"],
-//         credentials: true
-//     }
-// ));
+App.use(cors(
+    {
+        origin: "*",
+        
+    }
+));
 // App.use(express.json()); //
+if(process.env.NODE_ENV === "production")
+{
+    App.use(express.static("client/build"));
+    App.get('*',(req, res) => {
+        res.sendFile(path.resolve(__dirname,"client","index.html"));
+    });
+
+}
+
 App.get('/',(req, res) => {
         res.send("Hello world from server App.js");
     });

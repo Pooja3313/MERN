@@ -9,7 +9,7 @@ const [userData, setUserData] = useState({});
 
 const callAboutPage = async () => {
   try {
-    const res = await fetch('/about', {
+    const res = await fetch('https://pooja-backend.vercel.app/about', {
       method: "GET",
       headers: {
         Accept: "application/json",

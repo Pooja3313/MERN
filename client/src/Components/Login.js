@@ -47,7 +47,7 @@ function Login() {
 
   const loginUser = async (e) => {
     e.preventDefault();
-try{
+
     const res = await fetch('https://pooja-backend.vercel.app/signin', {
       method: "POST",
       headers: {
@@ -69,12 +69,7 @@ try{
       console.log("Successfully Login");
       navigate("/Home");
     }
-  } catch (error) {
-    console.error("Error occurred:", error);
-    // Handle the error appropriately, e.g., show an error message to the user.
   }
-};
-  
   return (
     <>
       <form method="POST">

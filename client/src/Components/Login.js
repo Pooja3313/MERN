@@ -48,7 +48,7 @@ function Login() {
   const loginUser = async (e) => {
     e.preventDefault();
 
-    const res = await fetch('/signin', {
+    const res = await fetch('https://pooja-backend.vercel.app/signin', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

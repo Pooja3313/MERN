@@ -5,14 +5,6 @@ const App = express();
 const cors = require("cors");
 const authRouter = require('./router/auth');
 
-App.use(cors(
-    {
-        origin: "*",
-        
-    }
-));
-
-
 dotenv.config({ path: './config.env'});
 const PORT = process.env.PORT;
 require('./db/conn');
@@ -24,6 +16,21 @@ App.get('/',(req, res) => {
     
     
 App.use(express.json()); //{this line use for output get data in this brackets like name:pooja etc...}
+App.use(cors(
+    {
+        origin: "*",
+        
+    }
+)); 
+
+App.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://mern-frontend-alpha.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true'); // Allow credentials such as cookies
+    next();
+  });
+
 if(process.env.NODE_ENV === "production")
 {
     App.use(express.static("../client/build"));

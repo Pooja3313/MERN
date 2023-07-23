@@ -29,6 +29,7 @@ const App = express();
 dotenv.config({ path: './config.env'});
 const PORT = process.env.PORT;
 require('./db/conn');
+
 App.get('/',(req, res) => {
             res.send("Hello Pooja")
             }

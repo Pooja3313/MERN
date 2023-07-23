@@ -74,7 +74,7 @@ try{
     // Handle the error appropriately, e.g., show an error message to the user.
   }
 };
-  }
+  
   return (
     <>
       <form method="POST">
